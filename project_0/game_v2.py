@@ -44,8 +44,36 @@ def score_game(random_predict) -> int:
     print(f'Ваш алгоритм угадывает число в среднем за: {score} попыток')
     return(score)
 
+def game_core_v3(number: int = 1) -> int:
+    """
+    Args:
+        number (int, optional): Загаданное число. Defaults to 1.
+
+    Returns:
+        int: Число попыток
+    """
+    # Ваш код начинается здесь
+    count = 0
+    min = 0
+    max = 101
+    
+    while True:
+        count += 1
+        predict_number = (max + min)//2 
+    
+        if predict_number > number:
+            max = predict_number
+
+        elif predict_number < number:
+            min = predict_number
+
+        else:
+            #print(f"Вы угадали число! Это число = {number}, за {count} попыток")
+            break # конец игры, выход из цикла
+    return(count)
+
 # RUN
 if __name__ == '__main__':
-    score_game(random_predict)
+    score_game(game_core_v3)
 
     
